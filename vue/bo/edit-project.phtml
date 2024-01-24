@@ -1,0 +1,216 @@
+<php? echo $projet ?>
+
+<div class="container pt-30">
+          <form method="post" action="insert-update-project.php" class="form custom-input">
+
+                  
+                  <a href="./bo-projects.php"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M19 11.0002H7.82998L12.71 6.12021C13.1 5.73021 13.1 5.09021 12.71 4.70021C12.32 4.31021 11.69 4.31021 11.3 4.70021L4.70998 11.2902C4.31998 11.6802 4.31998 12.3102 4.70998 12.7002L11.3 19.2902C11.69 19.6802 12.32 19.6802 12.71 19.2902C13.1 18.9002 13.1 18.2702 12.71 17.8802L7.82998 13.0002H19C19.55 13.0002 20 12.5502 20 12.0002C20 11.4502 19.55 11.0002 19 11.0002Z" fill="black"/>
+                  </svg>
+                  RETOUR</a>
+
+                  <h2 class="mt-40"> Mon projet </h2>
+
+                  <div class="block mtb-25">
+
+                      <?php
+                      if ($projet['id_projet'] != 0) {
+                      //Si le projet a un id, j'affiche le champs avec l'ID
+                      $id_projet = $projet['id_projet'];
+                      echo '<div class="bo-input mtb-10">
+                              <label for="id_projet">ID : </label> 
+                              <input type="text" name="id_projet" id="id_projet" class="input-large-width" readonly value="' . $id_projet .'"</div>';
+                      } else {
+                      //Sinon, j'affiche un message et je mets l'ID dans un champs caché
+                      echo '<div><p>Entrez les informations de votre nouveau projet</p></div>';
+                      echo '<input id="id_projet" name="id_projet" type="hidden" value="' . $id_projet . '" />';
+
+                      }
+                      ?> 
+
+
+                      <!-- <div class="block mtb-10">
+                          <label for="id_project">Id du projet :  </label> 
+                      </div> -->
+                  </div>    
+
+                  <div class="flex mtb-25 sm-block">
+                      <div class="bo-input mtb-10 sm-width-100">
+                          <label for="nom">Nom du projet : </label> 
+                          <input type="text" name="nom" id="nom" class="input-large-width sm-width-100" value="<?= $projet['nom']; ?>" >
+                      </div>
+
+                      <div class="bo-input mtb-10">
+                        <label for="budget">Budget : </label> 
+                        <input type="text" name="budget" id="budget" class="input-small-width" value="<?= $projet['budget']; ?>" >
+                      </div>
+                  </div>
+
+                  <div class="block mtb-25">
+
+                    <h4>Categorie(s)</h4>
+                    <!-- Je récupère l'info sur la/les catégories de mon projet -->
+                    <?php $categories = $projet['categorie']; ?>
+
+                    <!-- En fonction des catégories, je check ou uncheck celles qui correspondent -->
+                      <label for="design">Design</label>
+                        <?php
+                        if (strpos($categories, 'design') !== false) {
+                            echo '<input type="checkbox" id="design" name="design" value="design" checked>';
+                        } else {
+                            echo '<input type="checkbox" id="design" name="design" value="design">';
+                        }
+                        ?>
+                    
+                      <label for="vitrine">Site vitrine</label>
+                        <?php
+                          if (strpos($categories, 'vitrine') !== false) {
+                              echo '<input type="checkbox" id="vitrine" name="vitrine" value="vitrine" checked>';
+                          } else {
+                              echo '<input type="checkbox" id="vitrine" name="vitrine" value="vitrine">';
+                          }
+                        ?>
+
+                      <label for="ecommerce">E-commerce</label>
+                        <?php
+                            if (strpos($categories, 'ecommerce') !== false) {
+                                echo '<input type="checkbox" id="ecommerce" name="ecommerce" value="ecommerce" checked>';
+                            } else {
+                                echo '<input type="checkbox" id="ecommerce" name="ecommerce" value="ecommerce">';
+                            }
+                        ?>
+
+                  </div>
+
+                  <div class="block mtb-25">
+
+                      <h4>Description</h4>
+
+                      <div class="block mtb-10">	
+                        <label for="description1">Description du projet : </label> <br>
+                        <textarea name="description1" id="description1" class="sm-width-100" cols="56" rows="3" placeholder="Décrire le projet ici"><?php echo $projet['description1'];?></textarea>
+                      </div>
+
+                      <div class="block mtb-10">
+                        <label for="description2">Description du projet suite - demande du client: </label> <br>
+                        <textarea name="description2" id="description2" class="sm-width-100" cols="56" rows="3" placeholder="Décrire la suite du projet ici"><?php echo $projet['description1'];?></textarea>
+                      </div>
+
+                  </div>
+
+                  <div class="block mtb-25">
+
+                      <h4>Informations supplémentaires</h4>
+
+                      <div class="bo-input mtb-10 sm-width-100"> 
+                        <label for="client">Client : </label> 
+                        <input type="text" name="client" id="client" class="input-large-width sm-width-100" value="<?php echo $projet['client']; ?>">
+                      </div>
+
+                      <div class="bo-input mtb-10 sm-width-100">
+                        <label for="realisation">Réalisé par : </label> 
+                        <input type="text" name="realisation" id="realisation" class="input-large-width sm-width-100" value="<?php echo $projet['realisation']; ?>">
+                      </div>
+
+                      <div class="bo-input mtb-10 sm-width-100">
+                        <label for="date_livraison">Livré le : </label> 
+                        <input id="date_livraison" name="date_livraison" type="date" class="input-large-width sm-width-100" value="<?php echo $projet['date_livraison']; ?>">
+                      </div>
+
+                      <div class="bo-input mtb-10 sm-width-100">	
+                        <label for="prestation">Prestation : </label> 
+                        <textarea name="prestation" id="prestation" class="sm-width-100" cols="56" rows="2" placeholder="Décrire la prestation"><?php echo $projet['prestation']; ?></textarea>
+                      </div>
+
+                      <div class="bo-input mtb-10 sm-width-100">
+                        <label for="technos">Tehchologies utilisées : </label> 
+                        <textarea name="technos" id="technos" class="sm-width-100" cols="56" rows="2" placeholder="Décrire les technologies utilisées"><?php echo $projet['technos']; ?></textarea>
+                      </div>
+
+                  </div>  
+
+                  <div class="block mtb-25">
+
+                      <h4> Les images </h4>
+
+                      <div class="bo-input mtb-10 sm-width-100">
+                        <label for="img1">URL image 1 : </label> 
+                        <input id="img1" name="img1" type="text" class="input-large-width sm-width-100" value="<?php echo $projet['img1']; ?>">
+                      </div>
+
+                      <div class="bo-input mtb-1 sm-width-100">
+                        <label for="img2">URL image 2 : </label> 
+                        <input id="img2" name="img2" type="text" class="input-large-width sm-width-100" value="<?php echo $projet['img2']; ?>">
+                      </div>
+
+                      <div class="bo-input mtb-10 sm-width-100">
+                        <label for="img3">URL image 3 : </label> 
+                        <input id="img3" name="img3" type="text" class="input-large-width sm-width-100" value="<?php echo $projet['img3']; ?>">
+                      </div>
+                      
+                  </div>
+
+
+                  <div class="block mtb-25">
+                      <h4> Mise en ligne des maquettes </h4>
+
+                      <div class="bo-input mtb-10 sm-width-100">
+                        <label for="maquette1">Maquette 1 : </label> 
+                        <input id="maquette1" name="maquette1" type="text" class="input-large-width sm-width-100" value="<?php echo $projet['maquette1']; ?>">
+                      </div>
+
+                      <div class="bo-input mtb-10 sm-width-100">
+                        <label for="maquette2">Maquette 2 : </label> 
+                        <input id="maquette2" name="maquette2" type="text" class="input-large-width sm-width-100" value="<?php echo $projet['maquette2']; ?>">
+                      </div>
+
+                      <div class="bo-input mtb-10 sm-width-100">
+                        <label for="maquette3">Maquette 3 : </label> 
+                        <input id="maquette3" name="maquette3" type="text" class="input-large-width sm-width-100" value="<?php echo $projet['maquette3']; ?>">
+                      </div>
+                      </div>
+
+                      <div class="block mtb-25">
+                      <h4> Affichage des maquettes en pourcentage</h4>
+                      <p>(65 pour desk / 20 pour mobi)</p>
+
+                      <div class="bo-input mtb-10">
+                        <label for="pourcentage">Pourcentage : </label> 
+                        <input id="pourcentage" name="pourcentage" type="text" value="<?php echo $projet['pourcentage']; ?>">
+                      </div>
+
+                  </div>	
+
+                  <hr>
+                  
+                  <!-- Input d'édition du projet -->
+                  <input class="btn" type="submit" id="enregistrer" name="enregistrer" value="Enregistrer">
+                  
+                  
+                  <!-- Input de suppression du projet si existant -->
+                  <?php
+                      if ($projet['id_projet'] != 0) {
+                      //Si le projet a un id, l'utilisateur à la possibilité de le supprimer
+                      $id_projet = $projet['id_projet'];
+                      $nom_projet = $projet['nom'];
+                      echo '<!-- Input de suppression du projet -->
+                            <input 
+                              class="btn delete-btn" 
+                              type="submit" 
+                              id="softDelete" 
+                              name="supprimer" 
+                              value="Supprimer"  
+                              onclick="return confirm(`Êtes-vous sûr de vouloir supprimer ce projet ?`)"
+                            >';
+
+                      } else {
+                      //Sinon, je n'affiche pas le bouton
+                      }
+                  ?> 
+                  
+          </form>
+
+      </div>
+ 		
+
+</body>	

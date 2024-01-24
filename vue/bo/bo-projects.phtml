@@ -1,0 +1,42 @@
+<div class="style1 bg-light pt-30 pb-120">
+
+    <!-- Top de ma page -->
+    <div class="container flex space-between align-center">
+         <!-- Titre de ma page -->
+         <div><h3>Les projets en ligne</h3></div>
+         <!-- L'utilisateur à la possibilité d'ajouter un nouveau projet -->
+         <div><a href=../controleur/edit-project.php?id=0><p class="btn mr-10">Ajouter</p></a></div>
+         <!-- Liste de mes projets existants -->
+    </div>
+
+
+    <!-- Main content de ma page -->
+    <!-- Liste de mes projets -->
+
+    <div class="container flex flex-wrap">
+
+            <!-- Début de ma boucle -->
+            <?php foreach($projets as $projet):?>
+            
+                <div class="project-card ptb-15 plr-15">
+                        <p>#<?=$projet['id_projet'];?> </p>
+                        <p><?=$projet['nom'];?></p>
+                    
+                        <!-- Bouton qui me permet d'éditer le projet -->
+                        <a href="../controleur/edit-project.php?id=<?=$projet['id_projet'];?>"><p class="btn mr-10">Éditer</p></a>
+                </div>
+
+            <?php endforeach; ?>  
+
+    </div>        
+   
+</div>
+
+
+
+
+
+
+
+
+            
