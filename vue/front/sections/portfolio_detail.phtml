@@ -1,0 +1,158 @@
+
+	<div class="separateur"></div>
+	
+	<!-- Breadcrumbs & Page Title Start -->
+	<div class="breadcrumbs-title white-bg pt-80 pb-80">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="breadcrumbs-menu">
+						<h2>Nos Travaux</h2>
+						<ul class="clearfix">
+							<li><a class= "dark-coor-text" href="portfolio.php">Retour </a><span>|</span> </li>
+							<li><?= $projet['nom']; ?></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Breadcrumbs & Page Title End -->
+    <!-- Portfolio Details Section Start -->
+	<div class="portfolio-details style1 white-bg pt-30 pb-120">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12 col-sm-6 mobi-mb-50">
+
+
+					<div id="one-item" class="one-item project-image">
+						<div class="item">
+							<img src="../../../assets/img/portfolio/<?=$projet['img1'];?>" alt="Visuel site internet" />
+						</div>
+						<div class="item">
+							<img src="../../../assets/img/portfolio/<?=$projet['img2'];?>" alt="Visuel site internet" />
+						</div>
+						<div class="item">
+							<img src="../../../assets/img/portfolio/<?=$projet['img3'];?>" alt="Visuel site internet" />
+						</div>
+						<!-- <div class="item portfolio_square_img">
+							<img src="assets/img/portfolio/mdesign/hameau/hameau_color_scheme.jpg" alt="Thumbnail" />
+						</div> -->
+					</div>
+
+				</div>
+				<div class="col-xs-12 col-sm-6">
+					<div class="project-sidebar pl-40">
+						<div class="project-details mb-35">
+							<h2><?= $projet['nom']; ?></h2>
+							<p><?= $projet['description1']; ?></p>
+							<br>
+							<p><?= $projet['description2']; ?></p>
+						</div>
+						<div class="project-info">
+							<ul>
+								<li>
+									<h5>Client :</h5>
+									<p><?= $projet['client']; ?></p>
+								</li>
+								<li>
+									<h5>Réalisé par :</h5>
+									<p><?= $projet['realisation']; ?></p>
+								</li>
+								<li>
+									<h5>Date de livraison :</h5>
+
+									<?php
+									//<!-- Gestion de l'affichage de la date au bon format  -->
+									$eltDate = explode("-", $projet['date_livraison']);
+									$year = $eltDate[0];
+									$month = $eltDate[1];
+									$day = $eltDate[2];
+									$projet['date_livraison'] = $day . '.' . $month . '.' . $year;
+									//<!-- =========================== -->
+									?>
+
+									<p><?= $projet['date_livraison']; ?></p>
+								</li>
+								<li>
+									<h5>Prestation :</h5>
+									<p><?= $projet['prestation']; ?></p>
+								</li>
+								<li>
+									<h5>Technologies et autres infos :</h5>
+									<p><?= $projet['technos']; ?></p>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Portfolio Details Section End -->
+	
+
+	<!-- Portfolio Maquette 1 Start -->
+	<?php 
+	
+	if (is_null($projet['maquette1'])){
+		// Ne rien afficher
+	} else {?>
+
+		<hr class="horizontal_line hr_type_3">
+
+		<div class="maquette align-center mt-100 mb-100" style="width:<?=$projet['pourcentage'];?>%">
+			<img src="../../../assets/img/portfolio/<?=$projet['maquette1'];?>" alt="maquette du site internet" />
+		</div>
+	
+	<?php
+	}
+	?>
+	<!-- Portfolio Maquette 1 End -->
+
+	<!-- Portfolio Maquette 2 Start -->
+	<?php 
+	
+	if (is_null($projet['maquette2'])){
+		// Ne rien afficher
+	} else {?>
+
+		<hr class="horizontal_line hr_type_3">
+
+		<div class="maquette align-center mt-100 mb-100">
+			<img src="../../../assets/img/portfolio/<?=$projet['maquette2'];?>" alt="maquette du site internet" />
+		</div>
+	
+	<?php
+	}
+	?>
+	<!-- Portfolio Maquette 2 End -->
+
+	<!-- Portfolio Maquette 3 Start -->
+	<?php 
+	
+	if (is_null($projet['maquette3'])){
+		// Ne rien afficher
+	} else {?>
+
+		<hr class="horizontal_line hr_type_3">
+
+		<div class="maquette align-center mt-100 mb-100">
+			<img src="../../../assets/img/portfolio/<?=$projet['maquette3'];?>" alt="maquette du site internet" />
+		</div>
+	
+	<?php
+	}
+	?>
+	<!-- Portfolio Maquette 3 End -->
+
+
+
+    <?php 
+    //<!-- I INCLUDE CTA SECOND HERE  -->
+    include 'cta-second.phtml'; 
+    //<!-- =========================== -->
+    ?>
+
+
+   

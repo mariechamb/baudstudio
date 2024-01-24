@@ -1,0 +1,77 @@
+<div class="separateur"></div>
+
+	<!-- Breadcrumbs & Page Title Start -->
+	<div class="breadcrumbs-title white-bg pt-90">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="breadcrumbs-menu">
+						<h2>Portfolio</h2>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Breadcrumbs & Page Title End -->
+    <!-- Portfolio Section Start -->
+    <div class="portfolio-area style-2 column-3 white-bg section-pt pb-120 clearfix">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="portfolio-menu text-center">
+                        <ul class="clearfix mb-70">
+                            <li data-filter="*" class="active">Tout</li>
+                            <li data-filter=".design">Design</li>
+                            <li data-filter=".vitrine">Site vitrine</li>
+                            <li data-filter=".ecommerce">E-Commerce</li>
+                        </ul>
+                    </div>
+
+                        <!-- Row start -->
+                        <div class="portfolio-grid fitRows-grid">
+
+                            <!-- Début de la boucle PHP pour aller récupérer les données sur les projets -->
+                            <?php foreach($projets as $projet):?>
+
+                            <!-- Item Start -->
+                            <div class="grid-item <?=$projet['categorie'];?> percent-33">
+    							<div class="single-portfolio">
+    								<img src="/assets/img/portfolio/<?=$projet['img1'];?>" alt="Site internet réalisé par BaudStudio" >
+    								<div class="project-title white-bg text-center">
+    									<div class="d-table">
+    										<div class="d-table-cell">
+    											<a data-gall="gall-img" href="portfolio_detail.php?id=<?=$projet['id_projet'];?>">
+    												<img src="../../../assets/img/icons/zoom.png" alt="Plus Icon" >
+    											</a>
+    											<a href="portfolio_detail.php?id=<?=$projet['id_projet'];?>"><h4>Voir le projet</h4></a>
+    											<p><?=$projet['nom'];?></p>
+    										</div>
+    									</div>
+    								</div>
+    							</div>
+                            </div>
+    						<!-- Item End -->
+
+                            <?php endforeach; ?>  
+                            <!-- Fin boucle php -->
+                           
+                        </div>
+                        <!-- Row End -->
+
+                   <!--  <div class="view-all text-center">
+                        <a class="btn theme-btn mt-80" id="load-more-btn" href="javascript:void(0)">Load More</a>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Portfolio Section End -->
+    
+    
+    <?php 
+    //<!-- I INCLUDE CTA SECOND HERE  -->
+    include 'cta-second.phtml'; 
+    //<!-- =========================== -->
+    ?>
+	
+

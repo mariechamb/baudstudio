@@ -1,0 +1,61 @@
+    <!-- Contact Form Start -->
+    <div class="contact-area white-bg section-ptb">
+        <div class="container">
+            <div class="row">
+                        <div class="col-xs-12 col-md-6 mobi-mb-50 tab-mb-50">
+                            <div class="section-title style2 mb-40">
+                                <h2 class="mb-15">Contactez-nous</h2>
+                                <hr class="horizontal_line hr_contact">
+                                <!-- <p>Nous vous contactons dans les meilleurs délais.</p> -->
+                            </div>
+
+
+                            <div class="contact-form">
+
+                                <form class="custom-input contact_form" id="contact_form" method="post" action="../controleur/contact-form.php">
+
+                                    <div class="row">
+                                        <div class="col-xs-12 col-sm-6">
+                                            <label for="name">Nom</label>
+                                            <input type="text" id="contact_name" name="name" placeholder="Dupont" class="width100" required>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-6">
+                                            <label for="email">Email</label>
+                                            <input type="email" id="contact_email" name="email" placeholder="anna.dupont@mail.fr" class="width100" required>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-12 col-sm-6">
+                                            <label for="phone">Téléphone</label>
+                                            <input type="text" id="contact_phone" name="phone" class="width100" placeholder="06 12 34 56 78" >
+                                        </div>
+                                        <div class="col-xs-12 col-sm-6">
+                                            <label for="website">Url du site à refondre</label>
+                                            <input type="text" id="contact_website" name="website" class="width100" placeholder="www.monsite.fr">
+                                        </div>
+                                    </div>
+                                    <label for="message">Message</label>
+                                    <textarea name="message" id="contact_message" rows="2" class="width100"  placeholder="Laissez ici votre message et/ou décrivez brièvement votre projet."></textarea>
+                                
+
+                                    <!-- <div class="g-recaptcha" data-sitekey="6LfJZc4ZAAAAAH7ZYz8Bt866T8aFfi5lrtc_kkOE" ></div> -->
+
+                                   <input type="submit" name="send_button" id="send_button" class="btn" value="Envoyer">
+
+                                
+
+                                </form>
+
+
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-6 none-on-mobi">
+                            <div><img id="imgtel" data-twic-src="image:/contactez-nous-pour-la-creation-de-votre-site.webp" 
+                                      alt="Contactez Baudstudio pour la gestion de votre projet web">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>        
+
+    <!-- Contact Form End -->
